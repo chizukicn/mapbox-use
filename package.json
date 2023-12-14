@@ -28,7 +28,8 @@
     "lint:fix": "pnpm lint --fix",
     "prepare": "npx simple-git-hooks",
     "prepack": "pnpm run build",
-    "release": "pnpm test && changelogen --release && npm publish && git push --follow-tags",
+    "release": "changelogen --release &&  pnpm publish --access public --no-git-checks --registry https://registry.npmjs.org",
+    "prepublish": "pnpm run build",
     "test": "vitest",
     "up:deps": "taze major",
     "up:polyfill": "nolyfill install"
