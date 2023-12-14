@@ -23,6 +23,7 @@
   ],
   "scripts": {
     "build": "unbuild",
+    "stub": "unbuild --stub",
     "dev": "vitest dev",
     "lint": "eslint --cache -f mo --ext .ts,.js,.mjs,.cjs .",
     "lint:fix": "pnpm lint --fix",

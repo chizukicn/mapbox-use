@@ -16,13 +16,17 @@ export const injectOrProvideMap = () => {
 export const vueAdapter = () => {
   const map = injectOrProvideMap();
 
+  let stopWatch = () => {};
+
   const ready = new Promise<mapboxgl.Map>((resolve) => {
-    const stopWatch = watch(map, (val) => {
+    stopWatch = watch(map, (val) => {
       if (val) {
-        stopWatch();
         resolve(val);
       }
-    });
+    }, { immediate: true });
+  }).then((map) => {
+    stopWatch();
+    return map;
   });
 
   const setup = (_map: mapboxgl.Map) => {
