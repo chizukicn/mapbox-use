@@ -1,12 +1,12 @@
 {
-  "name": "starter-ts",
+  "name": "mapbox-use",
   "type": "module",
   "version": "0.0.0",
-  "packageManager": "pnpm@8.11.0",
+  "packageManager": "pnpm@8.12.1",
   "description": "",
   "author": "Chizuki <chizukicn@outlook.com>",
   "license": "MIT",
-  "repository": "chizukicn/starter-ts",
+  "repository": "chizukicn/mapbox-use",
   "sideEffects": false,
   "exports": {
     ".": {
@@ -29,30 +29,30 @@
     "prepare": "npx simple-git-hooks",
     "prepack": "pnpm run build",
     "release": "pnpm test && changelogen --release && npm publish && git push --follow-tags",
-    "test": "pnpm lint && vitest run --coverage",
+    "test": "vitest",
     "up:deps": "taze major",
     "up:polyfill": "nolyfill install"
   },
+  "peerDependencies": {
+    "mapbox-gl": "^3.0.1",
+    "vue": "^3.0.0"
+  },
+  "dependencies": {
+    "maybe-types": "^0.2.0"
+  },
   "devDependencies": {
     "@curev/eslint-config": "^0.2.2",
-    "@vitest/coverage-v8": "^0.34.6",
+    "@types/mapbox-gl": "^2.7.19",
+    "@vitest/coverage-v8": "^1.0.4",
     "changelogen": "^0.5.5",
-    "eslint": "^8.54.0",
+    "eslint": "^8.55.0",
     "eslint-formatter-mo": "^1.2.0",
-    "lint-staged": "^15.1.0",
-    "nolyfill": "^1.0.25",
+    "lint-staged": "^15.2.0",
+    "nolyfill": "^1.0.26",
     "simple-git-hooks": "^2.9.0",
-    "typescript": "^5.3.2",
+    "typescript": "^5.3.3",
     "unbuild": "^2.0.0",
-    "vitest": "^0.34.6"
-  },
-  "simple-git-hooks": {
-    "pre-commit": "npx lint-staged"
-  },
-  "lint-staged": {
-    "*.{js,ts,mjs,cjs}": [
-      "eslint --cache --fix"
-    ]
+    "vitest": "^1.0.4"
   },
   "pnpm": {
     "overrides": {
@@ -62,5 +62,13 @@
       "has": "npm:@nolyfill/has@latest",
       "object.values": "npm:@nolyfill/object.values@latest"
     }
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
+  "lint-staged": {
+    "*.{js,ts,mjs,cjs}": [
+      "eslint --cache --fix"
+    ]
   }
 }
