@@ -34,6 +34,45 @@ import { useMapbox } from "mapbox-use";
 const { useMapbox } = require("mapbox-use");
 ```
 
+```ts
+
+const { onLoaded , instance } = useMapbox({
+  handlers:{
+    tryAddLayer
+  }
+})
+
+onLoaded(()=>{
+  instance.addLayer({
+    id: "test",
+    type: "fill",
+    source: {
+      type: "geojson",
+      data: {
+        type: "Feature",
+        geometry: {
+          type: "Polygon",
+          coordinates: [
+            [
+              [0, 0],
+              [0, 1],
+              [1, 1],
+              [1, 0],
+              [0, 0],
+            ],
+          ],
+        },
+      },
+    },
+    paint: {
+      "fill-color": "#f00",
+      "fill-opacity": 0.5,
+    },
+  });
+})
+
+```
+
 ## Development
 
 - Clone this repository

@@ -1,33 +1,10 @@
 import type mapboxgl from "mapbox-gl";
 import { waitMapLoaded } from "./handlers";
-import type { Fn, MapEventListenerCallback, MapFunctionKeys, MapHandler, MapLifecycleCallback, MapProxyInstance, MaybePromise, PickKeys, UseMapboxAdapter } from "./types";
+import type { Fn, MapEventListenerCallback, MapFunctionKeys, MapHandler, MapLifecycleCallback, MapProxyInstance, MaybePromise, PickKeys, UseMapboxOptions, UseMapboxReturn } from "./types";
 import { vueAdapter } from "./adapter";
 
 
-
-export interface UseMapboxOptions<O extends Record<string, MapHandler<any[], any>>, EE extends MapFunctionKeys[] | true > {
-
-  /**
-   * @description custom handlers
-   */
-  handlers?: O
-  /**
-   * @description extends mapboxgl.Map
-   * @default true
-   */
-  extends?: EE
-  /**
-   * @description cleanup on scope dispose
-   * @default true
-   */
-  cleanupOnScopeDispose?: boolean
-
-  adapter?: UseMapboxAdapter
-}
-
-
-
-export const useMapbox = <O extends Record<string, MapHandler<any[], any>>, E extends (MapFunctionKeys[]) | true = []>(options: UseMapboxOptions<O, E> = {}) => {
+export const useMapbox = <O extends Record<string, MapHandler<any[], any>>, E extends (MapFunctionKeys[]) | true = []>(options: UseMapboxOptions<O, E> = {}): UseMapboxReturn<O, E> => {
   type EffectName = Exclude<PickKeys<O, (...args: any[]) => MaybePromise<Fn>>, number | symbol>;
 
   type ExtendsName = (E extends true ? MapFunctionKeys[] : E)[number];

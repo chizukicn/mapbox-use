@@ -1,8 +1,8 @@
 import { describe, expect, it } from "vitest";
-import type mapboxgl from "mapbox-gl";
 import { tryAddLayer, tryRemoveLayer, useMapbox } from "../src";
+import { createMockMap } from "../src/test-utils";
 
-describe("packageName", () => {
+describe("useMapbox", () => {
   const { instance, ready, setup } = useMapbox({
     handlers: {
       tryAddLayer,
@@ -10,30 +10,10 @@ describe("packageName", () => {
     }
   });
 
-
-
   it("should be defined", async () => {
-    const layers: mapboxgl.Layer[] = [];
+    const map = createMockMap();
 
-    setup({
-      addLayer(this: mapboxgl.Map, layer: mapboxgl.AnyLayer) {
-        layers.push(layer);
-        return this;
-      },
-      removeLayer(this: mapboxgl.Map, id: string) {
-        const index = layers.findIndex((layer) => layer.id === id);
-        if (index > -1) {
-          layers.splice(index, 1);
-        }
-        return this;
-      },
-      getLayer(id) {
-        return layers.find((layer) => layer.id === id);
-      },
-      loaded() {
-        return true;
-      }
-    } as mapboxgl.Map);
+    setup(map);
 
     await ready;
 
@@ -43,9 +23,9 @@ describe("packageName", () => {
       source: "test"
     });
 
-    expect(layers.length).toBe(1);
+    expect(map.getStyle().layers.length).toBe(1);
 
     instance.tryRemoveLayer("test");
-    expect(layers.length).toBe(0);
+    expect(map.getStyle().layers.length).toBe(0);
   });
 });

@@ -13,6 +13,16 @@
       "types": "./dist/index.d.ts",
       "require": "./dist/index.cjs",
       "import": "./dist/index.mjs"
+    },
+    "./handlers": {
+      "types": "./dist/handlers.d.ts",
+      "require": "./dist/handlers.cjs",
+      "import": "./dist/handlers.mjs"
+    },
+    "./test-utils": {
+      "types": "./dist/test-utils.d.ts",
+      "require": "./dist/test-utils.cjs",
+      "import": "./dist/test-utils.mjs"
     }
   },
   "main": "./dist/index.cjs",
