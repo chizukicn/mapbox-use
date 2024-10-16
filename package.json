@@ -2,7 +2,7 @@
   "name": "mapbox-use",
   "type": "module",
   "version": "0.0.3",
-  "packageManager": "pnpm@8.12.1",
+  "packageManager": "pnpm@9.12.2",
   "description": "",
   "author": "Chizuki <chizukicn@outlook.com>",
   "license": "MIT",
