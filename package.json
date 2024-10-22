@@ -2,7 +2,7 @@
   "name": "mapbox-use",
   "type": "module",
   "version": "0.0.3",
-  "packageManager": "pnpm@8.12.1",
+  "packageManager": "pnpm@8.15.9",
   "description": "",
   "author": "Chizuki <chizukicn@outlook.com>",
   "license": "MIT",
@@ -47,24 +47,24 @@
   },
   "peerDependencies": {
     "mapbox-gl": "^3.0.0 || ^2.0.0",
-    "vue": "^3.0.0"
+    "vue": "^3.5.12"
   },
   "dependencies": {
     "maybe-types": "^0.2.0"
   },
   "devDependencies": {
-    "@curev/eslint-config": "^0.2.2",
-    "@types/mapbox-gl": "^2.7.19",
-    "@vitest/coverage-v8": "^1.0.4",
-    "changelogen": "^0.5.5",
-    "eslint": "^8.55.0",
+    "@curev/eslint-config": "^0.3.7",
+    "@types/mapbox-gl": "^2.7.21",
+    "@vitest/coverage-v8": "^1.6.0",
+    "changelogen": "^0.5.7",
+    "eslint": "^8.57.1",
     "eslint-formatter-mo": "^1.2.0",
-    "lint-staged": "^15.2.0",
-    "nolyfill": "^1.0.26",
-    "simple-git-hooks": "^2.9.0",
-    "typescript": "^5.3.3",
+    "lint-staged": "^15.2.10",
+    "nolyfill": "^1.0.42",
+    "simple-git-hooks": "^2.11.1",
+    "typescript": "^5.6.3",
     "unbuild": "^2.0.0",
-    "vitest": "^1.0.4"
+    "vitest": "^1.6.0"
   },
   "pnpm": {
     "overrides": {
