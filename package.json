@@ -59,7 +59,7 @@
     "changelogen": "^0.5.5",
     "eslint": "^8.55.0",
     "eslint-formatter-mo": "^1.2.0",
-    "lint-staged": "^15.2.0",
+    "lint-staged": "^17.4.1",
     "nolyfill": "^1.0.26",
     "simple-git-hooks": "^2.9.0",
     "typescript": "^5.3.3",
